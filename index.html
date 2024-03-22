@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta charset="UTF-8">
+    <!--стиль--> 
+    <link rel="stylesheet" type="text/css" href="./css/index.css">    
+    <link rel="stylesheet" type="text/css" href="./css/img.css">    
+    <!-- шрифти -->
+    <style>
+       @font-face {
+            font-family: "Dots";
+            src: url("./fonts/dots.ttf") format("truetype");      
+            font-weight: normal;
+            font-style: normal; }    
+       @font-face {
+            font-family: "arsenal";            
+            src: url("./fonts/raleway/raleway-regular.ttf") format("truetype");      
+            font-style: normal; }              
+       @font-face {
+            font-family: "arsenal-bold";
+            src: url("./fonts/raleway/raleway-bold.ttf") format("truetype");      
+            font-weight: normal;
+            font-style: normal; } 
+      @font-face {
+            font-family: "arsenal-semibold";
+            src: url("./fonts/raleway/raleway-SemiBold.ttf") format("truetype");      
+            font-weight: normal;
+            font-style: normal; }  
+      @font-face {
+            font-family: "arsenal-mediumitalic";
+            src: url("./fonts/raleway/raleway-mediumitalic.ttf") format("truetype");      
+            font-weight: normal;
+            font-style: normal; }                                         
+                                                                                                      
+   </style>        
+</head>
+<body>   
+    <!-- Заголовок і версія -->
+    <header>
+        <div class="expand-menu">
+            <img src="./img/menu_light.png" id="expand" alt="menu-icon">            
+        </div>         
+        <div class="name">
+            <a>Тиск ударної хвилі</a>            
+            <div class="spec"></div>      
+            <div class="curved-border"></div>          
+        </div>       
+    </header> 
+    <main>       
+        <!-- меню -->
+        <div id="sideMenu" class="side-menu">
+            <div class="menu-header">
+                 <img src="./img/close.png" id="close" alt="close"></img>
+                 <img src="./img/mine.png" alt="" id="logo"></img>
+                 <p>Робота з вибуховими простроями</p>
+            </div>           
+            <ul>
+                <li>
+                    <img src="./img/wave-part.png" alt="vawe"></img>
+                    <a href="#">Тиск вибухової хвилі</a>
+                </li>   
+                <li>
+                    <img src="./img/fractions-menu.png" alt="vawe" ></img>
+                    <a href="#" style="color:#61616170;">Осколкова дія</a>
+                </li>              
+                <li>
+                    <img src="./img/sappers.png" alt="sappers"></img>
+                    <a href="https://sappers.com.ua/">Міни</a>
+                </li>        
+                 <li>
+                    <img src="./img/detonator-menu.png" alt="vawe"></img>
+                    <a href="#" style="color:#61616170;">Зведення детонаторів</a>
+                </li>   
+                <li>
+                    <img src="./img/map.png" alt="vawe"></img>
+                    <a href="#" style="color:#61616170;">КМП</a>
+                </li>                                     
+            </ul>
+        </div>
+        <div id="mainContent"> </div>
+
+        <!-- ВР і еквівалент -->    
+        <div class="expl-box">   
+            <div class="icon-expl">
+                 <img src="./img/explosion-light.png" alt="expl1" id="icon-expl"> 
+            </div>                          
+            <div class="expl-lines">   
+                <div class="select-expl"></div>                              
+                <div class="options">
+                    <div class="search-box">
+                        <input type="search" id="search" placeholder="Пошук" onkeyup="search(this)" />        
+                    </div>
+                    <div class="option" data-value="1">Тротил (TNT)</div>
+                    <div class="option" data-value="1.34">C–4</div>
+                    <div class="option" data-value="1.36">Semtex-10</div>
+                    <div class="option" data-value="1.46">МС</div>
+                    <div class="option" data-value="1.25">ТМ</div>
+                    <div class="option" data-value="1.23">ТГА (Torpex)</div>
+                    <div class="option" data-value="1.22">A–IX–1</div>
+                    <div class="option" data-value="1.55">A–IX–2</div>
+                    <div class="option" data-value="1.22">A–IX–10 (Гекфол-5)</div>
+                    <div class="option" data-value="1.55">A–IX–20</div>
+                    <div class="option" data-value="1.55">К–991</div>
+                    <div class="option" data-value="1.16">HBX-3</div>
+                    <div class="option" data-value="1.05">MDV</div>
+                    <div class="option" data-value="1.05">Пентоліт 50/50</div>
+                    <div class="option" data-value="0.97">Амматол</div>
+                    <div class="option" data-value="0.85">Пікрат Аммонію</div>
+                    <div class="option" data-value="1.7">Октоген (HMX)</div>    
+                    <div class="option" data-value="1.6">Гексоген (RDX)</div> 
+                    <div class="option" data-value="0.99">Аммонал</div>
+                    <div class="option" data-value="0.92">ПВВ–4</div>
+                    <div class="option" data-value="1.10">ПВВ–5А</div>
+                    <div class="option" data-value="1.10">ПВВ–5АМ</div>
+                    <div class="option" data-value="1.5">ПВВ–7</div>
+                    <div class="option" data-value="1">ПВВ–12С</div>
+                    <div class="option" data-value="1.24">ПВВ–12М</div>
+                    <div class="option" data-value="1.08">ЕВВ–11</div>                     
+                    <div class="option" data-value="1.15">ТГ–50</div>
+                    <div class="option" data-value="1.35">ТГ–40 (composition B)</div>
+                    <div class="option" data-value="1.21">ТГ–30</div>                
+                    <div class="option" data-value="1.07">Тритонал</div>     
+                    <div class="option" data-value="0.4">ТГА–5</div>
+                    <div class="option" data-value="1.45">ТГА–20</div>
+                    <div class="option" data-value="1.1">Тетрил</div>
+                    <div class="option" data-value="1.4">ТН (ТЕН флегматизований)</div>
+                    <div class="option" data-value="1.5">ТНН (ТЕН нефлагматизований)</div>
+                    <div class="option" data-value="1.45">ТЕН</div>
+                    <div class="option" data-value="0.42">ТНРС</div>
+                    <div class="option" data-value="1.2">ДУ–5</div>
+                    <div class="option" data-value="1.1">Гекфіт</div>
+                    <div class="option" data-value="0.30">Азид свинцю</div>
+                    <div class="option" data-value="0.40">Гримуча Ртуть</div>
+                    <div class="option" data-value="0.42">Амоній Нітрат</div>                                                  
+               </div>  
+             
+                <!-- еквівалент обраної вибухової речовини в переліку на кг --> 
+               <div class="filler-expl">
+                   <span class="equivalent-value">доступний список речовин</span>                
+               </div>   
+           </div>                               
+       </div>           
+       <!-- маса вр -->
+       <div class="mass-box">
+           <div class="icon-mass">
+                <img src="./img/mass-light.png" alt="ms" id="icon-mass">
+           </div> 
+           <div class="mass-lines">
+               <input type="number" id="massInput" placeholder="Маса [кг]:">     
+               <div class="label-mass">Маса [кг]</div>              
+               <div class="filler-mass">
+                   <span id="TNTres"></span>
+               </div>
+           </div>   
+       </div>
+       <!-- відстань -->       
+       <div class="pressure-box">
+           <div class="icon-dist">
+                <img src="./img/distance-light.png" alt="dist" id="icon-dist">
+           </div>
+           <div class="pressure-lines">            
+               <input type="number" id="Distance" placeholder="Відстань [м]:">
+               <div class="label-pressure">Відстань [м]</div>
+               <div class="filler-pressure">          
+                  <span id="Pressure"></span>   
+               </div> 
+           </div> 
+       </div>
+       </main>  
+       
+       <section>
+       <div class="tbl-header">
+          <table cellpadding="0" cellspacing="0">
+              <thead>
+                <tr>          
+                <th>Ураження:</th>
+                <th>Легке</th>
+                <th>Середнє</th>
+                <th>Важке</th>
+                </tr>
+              </thead>
+          </table>
+       </div>
+       <div class="tbl-content">
+          <table cellpadding="0" cellspacing="0">
+            <tbody>
+                <tr>          
+                    <td style="font-weight:bold">Піхота в полі</td>
+                    <td>20-40 кПа</td>
+                    <td>40-60 кПа</td>
+                    <td>60-138 кПа</td>
+                </tr>
+                <tr>          
+                    <td style="font-weight:bold">Легка бронетехніка</td>
+                    <td>7 кПа</td>
+                    <td>27 кПа</td>
+                    <td>48 кПа</td>
+                </tr>
+                <tr>          
+                    <td style="font-weight:bold">Важка бронетехніка</td>
+                    <td>69 кПа</td>
+                    <td>690 кПа</td>
+                    <td>1380 кПа</td>
+                </tr>  
+                <tr>          
+                    <td style="font-weight:bold">Вантажні авто</td>
+                    <td>10 кПа</td>
+                    <td>35 кПа</td>
+                    <td>50-70 кПа</td>
+                </tr>           
+                <tr>          
+                    <td style="font-weight:bold">Дорога</td>
+                    <td>34 кПа</td>
+                    <td>55 кПа</td>
+                    <td>82 кПа</td>
+                </tr>   
+                <tr>          
+                    <td style="font-weight:bold">Залізничні колії</td>
+                    <td>125 кПа</td>
+                    <td>175 кПа</td>
+                    <td>250-400 кПа</td>
+                </tr>    
+                <tr>          
+                    <td style="font-weight:bold">Металеві, залізобетонні мости</td>
+                    <td>100-150 кПа</td>
+                    <td>150-200 кПа</td>
+                    <td>200-300 кПа</td>
+                </tr>           
+                <tr>          
+                    <td style="font-weight:bold">Житлова будівля</td>
+                    <td>10-20 кПа</td>
+                    <td>20-30 кПа</td>
+                    <td>30-50 кПа</td>
+                </tr>            
+                <tr>          
+                    <td style="font-weight:bold">ТЕС</td>
+                    <td>10-15 кПа</td>
+                    <td>15-20 кПа</td>
+                    <td>20-40 кПа</td>
+                </tr>            
+               
+                <tr>          
+                    <td style="font-weight:bold">ЛЕП</td>
+                    <td>20-40 кПа</td>
+                    <td>50-70 кПа</td>
+                    <td>80-200 кПа</td>
+                </tr>  
+                <tr>          
+                    <td style="font-weight:bold">Трансформаторні підстанції</td>
+                    <td>10-20 кПа</td>
+                    <td>20-40 кПа</td>
+                    <td>40-100 кПа</td>
+                </tr> 
+                <tr>          
+                    <td style="font-weight:bold">Металеві, залізобетонні мости</td>
+                    <td>100-150 кПа</td>
+                    <td>150-200 кПа</td>
+                    <td>200-300 кПа</td>
+                </tr>                                                                  
+                <tr>          
+                    <td style="font-weight:bold">Цистерни</td>
+                    <td>30 кПа</td>
+                    <td>50 кПа</td>
+                    <td>70-80 кПа</td>
+                </tr>      
+                <tr>          
+                    <td style="font-weight:bold">Водонапірні вежі</td>
+                    <td>10-20 кПа</td>
+                    <td>20-40 кПа</td>
+                    <td>40-70 кПа</td>
+                </tr>             
+               </tbody>
+           </table>
+       </div>
+       </section>
+   <!--книги і канал -->   
+       <footer>
+        <div class="footer-content">  
+            <!-- Книги, лінк -->
+            <div class="link-icon1">     
+                <a href="https://drive.google.com/drive/u/0/mobile/folders/1PZpQCcYtQp-JyMkJQ0uLxQp8HEUPv3Qp?usp=sharing" >
+                    <img src="./img/books.png" alt="Books icon">
+                    <div class="link">
+                        <div class="first">Саперка</div>
+                        <div class="second">Google диск</div>
+                    </div>    
+                </a>
+            </div>  
+             <!-- Канал Лісника, лінк -->  
+            <div class="link-icon2">               
+                <a href="https://t.me/Ahtung_minen">
+                    <img src="./img/forester.png" alt="Forester icon">   
+                    <div class="link">
+                        <div class="first">Канал Лісника</div>
+                        <div class="second">Telegram</div>
+                    </div>                  
+                </a>     
+            </div>
+        </div>               
+      </footer>
+     
+   <div class="dimming-options"></div>      
+   <div class="dimming-menu"></div>        
+   <!-- скріпти: формула; справка; таблиця ВР -->
+    
+    <script  src="./js/index.js"></script>     
+</body>
+</html>
