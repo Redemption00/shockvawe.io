@@ -55,10 +55,7 @@ searchLine.onclick = function () {
         this.classList.remove("open");
         explIcon.style.backgroundColor = "var(--expl-color)";
         massIcon.style.backgroundColor = "var(--mass-color)";
-        distIcon.style.backgroundColor = "var(--dist-color)"; 
-        changeImage("icon-expl", "img/init_charge.png", "img/explosion_white.png");
-        changeImage("icon-mass", "img/booster_charge1.png", "img/mass_white.png");
-        changeImage("icon-dist", "img/main_charge.png", "img/distance_white.png");                     
+        distIcon.style.backgroundColor = "var(--dist-color)";                             
         list.style.maxHeight = null;
         list.style.boxShadow = null;    
         list.style.opacity = null;
@@ -71,10 +68,7 @@ searchLine.onclick = function () {
         list.style.opacity = "1";           
         explIcon.style.backgroundColor = "#fff";
         massIcon.style.backgroundColor = "#fff";
-        distIcon.style.backgroundColor = "#fff"; 
-        changeImage("icon-expl", "img/explosion_white.png", "img/init_charge.png");
-        changeImage("icon-mass", "img/mass_white.png", "img/booster_charge1.png");
-        changeImage("icon-dist", "img/distance_white.png", "img/main_charge.png");                
+        distIcon.style.backgroundColor = "#fff";                         
         document.querySelector(".dimming-options").classList.add("dim-active");
         document.querySelector("body").classList.add("dim-overflow");
         options.addEventListener('click', (event) => {
@@ -87,10 +81,7 @@ searchLine.onclick = function () {
                     equivalentValueElement.textContent = `${equivalentValue}`;      
                     explIcon.style.backgroundColor = "var(--expl-color)";
                     massIcon.style.backgroundColor = "var(--mass-color)";
-                    distIcon.style.backgroundColor = "var(--dist-color)";          
-                    changeImage("icon-expl", "img/init_charge.png", "img/explosion_white.png");
-                    changeImage("icon-mass", "img/booster_charge1.png", "img/mass_white.png");
-                    changeImage("icon-dist", "img/main_charge.png", "img/distance_white.png");                             
+                    distIcon.style.backgroundColor = "var(--dist-color)";                                                           
                     list.style.maxHeight = null;
                     list.style.boxShadow = null;    
                     list.style.opacity = null;
