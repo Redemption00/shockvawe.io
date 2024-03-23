@@ -1,6 +1,6 @@
-# Welcome to the Explosion Shock Wave Calculator
+## Calculator
 
-Welcome to the Explosion Shock Wave Calculator, a tool designed for educational purposes to aid in the training of army sappers. This calculator utilizes Wang's physical modeling to simulate explosion shock waves and their effects.
+Welcome to the Shock Wave Calculator, a tool designed for educational purposes to aid in the training of army sappers. This calculator utilizes Wang's physical modeling to simulate explosion shock waves and their effects.
 
 ## Purpose
 
