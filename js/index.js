@@ -130,8 +130,9 @@ var pressure = null;
 function updatePressure() { 
     if (distInput && TNTres) {
         document.querySelector(".label-pressure").classList.add("active");
-        pressure = Peak_pressure(distInput, TNTres);
-        PressureContainer.textContent = `тиск: ${(pressure * 1000).toFixed(2)} кПа =  ${(pressure * 10.1972).toFixed(2)} ат`; }         
+        pressure = (Peak_pressure(distInput, TNTres) * 1000).toFixed(2);
+        highlightIntervals(pressure);
+        PressureContainer.textContent = `тиск: ${pressure} кПа =  ${(pressure * 0.0101972).toFixed(2)} ат`};     
     else {
         PressureContainer.textContent = ""; 
     }
@@ -252,3 +253,46 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   };
 });
+
+/* підсвітка значень таблиці*/
+function highlightIntervals(pressure) {
+  const tableRows = document.querySelectorAll(".tbl-content table tbody tr");
+
+  tableRows.forEach((row) => {
+    const cells = row.querySelectorAll("td");
+    const n = cells.length;
+   
+    for (let i = 1; i < n; i++) {
+      const cell = cells[i];
+      const interval = cell.textContent.trim();
+      const min = parseInterval(interval);
+
+      cell.classList.remove("highlight");
+
+      if (i < n - 1) {
+        const closestCell = cells[i+1];
+        const closestInterval = closestCell.textContent.trim();
+        const closestMin = parseInterval(closestInterval);
+        
+        if (pressure >= min && pressure < closestMin) {
+           cell.classList.add("highlight");
+           }
+       } else if (i == n-1 && pressure >= min){
+           cell.classList.add("highlight");
+           }
+      }
+  });
+}
+function parseInterval(interval) {
+  let min = null;
+  let max = null;
+
+  if (interval.includes("-")) {
+    [min, max] = interval.split("-").map(parseFloat);
+  } else {
+    min = parseFloat(interval);
+    max = null;
+  }
+  return min;
+  }
+                
