@@ -103,17 +103,14 @@ function updateTNTres() {
         document.querySelector(".label-mass").classList.add("active");
         TNTres = userInput * equivalent;
         TNTresContainer.textContent = `тротиловий еквівалент: ${convertMass(TNTres)}`;
-    }
-        
-    else {
+    } else {
         const TNTres = null;
         TNTresContainer.textContent = ""; 
       }
     }
-
 massInput.addEventListener('input', function() {
-    const inputText = massInput.value;
-    const parsedNumber = parseFloat(inputText);  
+    var inputText = massInput.value;
+    var parsedNumber = parseFloat(inputText);  
     if (!isNaN(parsedNumber) && parsedNumber > 0) {
         userInput = parsedNumber; 
     } else {
@@ -123,8 +120,8 @@ massInput.addEventListener('input', function() {
 });
 
 //дистанція 
-const Distance = document.getElementById('Distance');
-const PressureContainer = document.getElementById('Pressure');
+var Distance = document.getElementById('Distance');
+var PressureContainer = document.getElementById('Pressure');
 let distInput = null;
 var pressure = null;
 
@@ -133,66 +130,12 @@ function updatePressure() {
         document.querySelector(".label-pressure").classList.add("active");
         pressure = (Peak_pressure(distInput, TNTres) * 1000).toFixed(2);
         highlightIntervals(pressure);
-        PressureContainer.textContent = `тиск: ${pressure} кПа =  ${(pressure * 0.0101972).toFixed(2)} ат`;
-    }     
-    else {
-        PressureContainer.textContent = ""; 
+        PressureContainer.textContent = `тиск: ${pressure} кПа =  ${(pressure * 0.0101972).toFixed(2)} ат`; 
+    } else {        
+        PressureContainer.textContent = "";        
     }
 };
 
-Distance.addEventListener('input', function() {
-    const inputTx = Distance.value;
-    const parsedDist = parseFloat(inputTx);
-  
-    if (!isNaN(parsedDist) && parsedDist > 0) {
-        distInput = parsedDist; } 
-        else {
-        distInput = null;
-        }
-  
-    updatePressure();
-    });
-
- 
-setInterval(function() { 
-  updatePressure(); updateTNTres();
-}, 500);
-//підказка
-function changeImage(imageId, loadImg, newAddress) {
-    var imageElement = document.getElementById(imageId); 
-    imageElement.style.opacity = 0;
-    imageElement.src = loadImg
-    setTimeout(function() {
-      imageElement.src = newAddress;
-      imageElement.style.opacity = 1; 
-    }, 200); 
-  }
-//ховер  маса
-document.querySelector("#massInput").addEventListener("focus", function() {  
-    triggerVibration(45)    
-    document.querySelector("#massInput").style.border = "2px solid var(--mass-color)"; 
-  
-    });
-document.querySelector("#massInput").addEventListener("blur", function() {
-    if (!userInput){
-       
-        document.querySelector("#massInput").style.border = "1px solid var(--border-color)";
-        document.querySelector(".label-mass").classList.remove("active");
-        }    
-    });
-//ховер тиск
-document.querySelector("#Distance").addEventListener("focus", function() {  
-    triggerVibration(45)
-    
-    document.querySelector("#Distance").style.border = "2px solid var(--dist-color)"; 
-    });
-document.querySelector("#Distance").addEventListener("blur", function() {
-    if (!distInput){
-        
-        document.querySelector("#Distance").style.border = "1px solid var(--border-color)"; 
-        document.querySelector(".label-pressure").classList.remove("active");
-        }    
-    });
 //пошук 
 var label = document.querySelectorAll(".option");
 var searchInput = document.getElementById("search");
