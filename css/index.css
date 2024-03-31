@@ -334,8 +334,7 @@ header {
 }
 .label-mass, .label-pressure {
   font-size: var(--td);
-  font-family: "arsenal", monospace;
-  font-weight: bold;
+  font-family: "arsenal-bold", monospace;
   padding: 1px 5px;
   position: absolute;
   top: 0; 
