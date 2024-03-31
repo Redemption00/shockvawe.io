@@ -55,7 +55,10 @@ searchLine.onclick = function () {
         this.classList.remove("open");
         explIcon.style.backgroundColor = "var(--expl-color)";
         massIcon.style.backgroundColor = "var(--mass-color)";
-        distIcon.style.backgroundColor = "var(--dist-color)";                             
+        distIcon.style.backgroundColor = "var(--dist-color)"; 
+        changeImage("icon-expl", "img/init_charge.png", "img/explosion_white.png");
+        changeImage("icon-mass", "img/booster_charge1.png", "img/mass_white.png");
+        changeImage("icon-dist", "img/main_charge.png", "img/distance_white.png");                     
         list.style.maxHeight = null;
         list.style.boxShadow = null;    
         list.style.opacity = null;
@@ -68,7 +71,10 @@ searchLine.onclick = function () {
         list.style.opacity = "1";           
         explIcon.style.backgroundColor = "#fff";
         massIcon.style.backgroundColor = "#fff";
-        distIcon.style.backgroundColor = "#fff";                         
+        distIcon.style.backgroundColor = "#fff"; 
+        changeImage("icon-expl", "img/explosion_white.png", "img/init_charge.png");
+        changeImage("icon-mass", "img/mass_white.png", "img/booster_charge1.png");
+        changeImage("icon-dist", "img/distance_white.png", "img/main_charge.png");                
         document.querySelector(".dimming-options").classList.add("dim-active");
         document.querySelector("body").classList.add("dim-overflow");
         options.addEventListener('click', (event) => {
@@ -81,7 +87,10 @@ searchLine.onclick = function () {
                     equivalentValueElement.textContent = `${equivalentValue}`;      
                     explIcon.style.backgroundColor = "var(--expl-color)";
                     massIcon.style.backgroundColor = "var(--mass-color)";
-                    distIcon.style.backgroundColor = "var(--dist-color)";                                                           
+                    distIcon.style.backgroundColor = "var(--dist-color)";          
+                    changeImage("icon-expl", "img/init_charge.png", "img/explosion_white.png");
+                    changeImage("icon-mass", "img/booster_charge1.png", "img/mass_white.png");
+                    changeImage("icon-dist", "img/main_charge.png", "img/distance_white.png");                             
                     list.style.maxHeight = null;
                     list.style.boxShadow = null;    
                     list.style.opacity = null;
@@ -90,10 +99,11 @@ searchLine.onclick = function () {
                  }                       
          });                           
     }
-};                     
+};  
+                   
 //масса
-const massInput = document.getElementById('massInput');
-const TNTresContainer = document.getElementById('TNTres');
+var massInput = document.getElementById('massInput');
+var TNTresContainer = document.getElementById('TNTres');
 var TNTres = null;
 let userInput = null;
 
@@ -102,8 +112,9 @@ function updateTNTres() {
     if (userInput) {
         document.querySelector(".label-mass").classList.add("active");
         TNTres = userInput * equivalent;
-        TNTresContainer.textContent = `тротиловий еквівалент: ${convertMass(TNTres)}`;
-    } else {
+        TNTresContainer.textContent = `тротиловий еквівалент: ${convertMass(TNTres)}`; } 
+        
+    else {
         const TNTres = null;
         TNTresContainer.textContent = ""; 
       }
@@ -130,12 +141,68 @@ function updatePressure() {
         document.querySelector(".label-pressure").classList.add("active");
         pressure = (Peak_pressure(distInput, TNTres) * 1000).toFixed(2);
         highlightIntervals(pressure);
-        PressureContainer.textContent = `тиск: ${pressure} кПа =  ${(pressure * 0.0101972).toFixed(2)} ат`; 
-    } else {        
+        PressureContainer.textContent = `тиск: ${pressure} кПа =  ${(pressure * 0.0101972).toFixed(2)} ат`; }         
+    else {        
         PressureContainer.textContent = "";        
     }
 };
+      
+Distance.addEventListener('input', function() {
+    var inputTx = Distance.value;
+    var parsedDist = parseFloat(inputTx);
+  
+    if (!isNaN(parsedDist) && parsedDist > 0) {
+        distInput = parsedDist; } 
+        else {
+        distInput = null;
+        }  
+    updatePressure();
+    });
 
+ 
+setInterval(function() { 
+  updatePressure(); updateTNTres();
+}, 500);
+
+//підказка
+function changeImage(imageId, loadImg, newAddress) {
+    var imageElement = document.getElementById(imageId); 
+    imageElement.style.opacity = 0;
+    imageElement.src = loadImg
+    setTimeout(function() {
+      imageElement.src = newAddress;
+      imageElement.style.opacity = 1; 
+    }, 200); 
+  }
+  
+//ховер  маса
+document.querySelector("#massInput").addEventListener("focus", function() {  
+    triggerVibration(45)    
+    document.querySelector("#massInput").style.border = "2px solid var(--mass-color)"; 
+  
+    });
+document.querySelector("#massInput").addEventListener("blur", function() {
+    if (!userInput){
+       
+        document.querySelector("#massInput").style.border = "1px solid var(--border-color)";
+        document.querySelector(".label-mass").classList.remove("active");
+        }    
+    });
+    
+//ховер тиск
+document.querySelector("#Distance").addEventListener("focus", function() {  
+    triggerVibration(45)
+    
+    document.querySelector("#Distance").style.border = "2px solid var(--dist-color)"; 
+    });
+document.querySelector("#Distance").addEventListener("blur", function() {
+    if (!distInput){
+        
+        document.querySelector("#Distance").style.border = "1px solid var(--border-color)"; 
+        document.querySelector(".label-pressure").classList.remove("active");
+        }    
+    });
+    
 //пошук 
 var label = document.querySelectorAll(".option");
 var searchInput = document.getElementById("search");
@@ -171,6 +238,7 @@ function triggerVibration(duration) {
     }, 12); 
   }
 }
+ 
 /* меню */
 document.getElementById("expand").addEventListener("click", function() {
   document.getElementById("sideMenu").classList.add("menu-open");
@@ -184,7 +252,6 @@ document.getElementById("close").addEventListener("click", function() {
 });
 
 //хедер
-
 document.addEventListener("DOMContentLoaded", function() {
   var header = document.querySelector("header");
   var wasOpened = false;
@@ -198,7 +265,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   };
 });
-
+   
 /* підсвітка значень таблиці*/
 function highlightIntervals(pressure) {
   const tableRows = document.querySelectorAll(".tbl-content table tbody tr");
@@ -239,5 +306,5 @@ function parseInterval(interval) {
     max = null;
   }
   return min;
-  }
-                
+     }
+ 
