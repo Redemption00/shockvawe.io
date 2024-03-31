@@ -56,9 +56,9 @@ searchLine.onclick = function () {
         explIcon.style.backgroundColor = "var(--expl-color)";
         massIcon.style.backgroundColor = "var(--mass-color)";
         distIcon.style.backgroundColor = "var(--dist-color)"; 
-        changeImage("icon-expl", "img/init_charge.png", "img/explosion_white.png");
-        changeImage("icon-mass", "img/booster_charge1.png", "img/mass_white.png");
-        changeImage("icon-dist", "img/main_charge.png", "img/distance_white.png");                     
+        changeImage("icon-expl", "img/init_charge.png", "img/explosion-light.png");
+        changeImage("icon-mass", "img/booster_charge1.png", "img/mass-light.png");
+        changeImage("icon-dist", "img/main_charge.png", "img/distance-light.png");                     
         list.style.maxHeight = null;
         list.style.boxShadow = null;    
         list.style.opacity = null;
@@ -72,9 +72,9 @@ searchLine.onclick = function () {
         explIcon.style.backgroundColor = "#fff";
         massIcon.style.backgroundColor = "#fff";
         distIcon.style.backgroundColor = "#fff"; 
-        changeImage("icon-expl", "img/explosion_white.png", "img/init_charge.png");
-        changeImage("icon-mass", "img/mass_white.png", "img/booster_charge1.png");
-        changeImage("icon-dist", "img/distance_white.png", "img/main_charge.png");                
+        changeImage("icon-expl", "img/explosion-light.png", "img/init_charge.png");
+        changeImage("icon-mass", "img/mass-light.png", "img/booster_charge1.png");
+        changeImage("icon-dist", "img/distance-light.png", "img/main_charge.png");                
         document.querySelector(".dimming-options").classList.add("dim-active");
         document.querySelector("body").classList.add("dim-overflow");
         options.addEventListener('click', (event) => {
@@ -88,9 +88,9 @@ searchLine.onclick = function () {
                     explIcon.style.backgroundColor = "var(--expl-color)";
                     massIcon.style.backgroundColor = "var(--mass-color)";
                     distIcon.style.backgroundColor = "var(--dist-color)";          
-                    changeImage("icon-expl", "img/init_charge.png", "img/explosion_white.png");
-                    changeImage("icon-mass", "img/booster_charge1.png", "img/mass_white.png");
-                    changeImage("icon-dist", "img/main_charge.png", "img/distance_white.png");                             
+                    changeImage("icon-expl", "img/init_charge.png", "img/explosion-light.png");
+                    changeImage("icon-mass", "img/booster_charge1.png", "img/mass-light.png");
+                    changeImage("icon-dist", "img/main_charge.png", "img/distance-light.png");                             
                     list.style.maxHeight = null;
                     list.style.boxShadow = null;    
                     list.style.opacity = null;
