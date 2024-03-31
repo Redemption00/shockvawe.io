@@ -121,8 +121,7 @@ header {
   transform: translateX(-100%) scale(10%, 2%);
 } 
 .spec {
-  display: flex; 
-  /* font-family: "arsenal-italic"; */
+  display: flex;
   font-size: var(--spec); 
   padding-top: var(--spec-top);
   justify-content: center;
@@ -141,7 +140,6 @@ header {
 }
 .select-expl {
   background-color: var(--background);
-  /* font-family: "arsenal-semibold", monospace; */
   position: relative;
   cursor: pointer;
   display: flex;
@@ -336,7 +334,8 @@ header {
 }
 .label-mass, .label-pressure {
   font-size: var(--td);
-  font-family: "arsenal-semibold", monospace;
+  font-family: "arsenal", monospace;
+  font-weight: bold;
   padding: 1px 5px;
   position:absolute;
   top: 0; 
@@ -361,8 +360,7 @@ header {
 #TNTres, #Pressure, .equivalent-value{ 
   width: 100%;
   display: inline-block;  
-  font-size: var(--select-font);  
-  /* font-family: "arsenal"; */
+  font-size: var(--select-font); 
   font-weight:600;
   padding-left: 7px;
   align-items: center;
@@ -549,6 +547,6 @@ footer {
 .menu-header p{
   font-size: var(--td);
   color: black;
-  font-family: "arsenal-mediumitalic";
+  font-family: "arsenal-bold";
   padding: 5px;
 }
