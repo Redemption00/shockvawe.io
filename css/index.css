@@ -337,13 +337,13 @@ header {
   font-family: "arsenal", monospace;
   font-weight: bold;
   padding: 1px 5px;
-  position:absolute;
+  position: absolute;
   top: 0; 
   left: 25px;
   transition: opacity 0.3s ease-in-out, top 0.3s ease-in-out; 
   opacity: 0; 
   z-index: -1;
- }
+}
 .label-mass{
   color: var(--mass-color);  
   background-color: var(--background);
