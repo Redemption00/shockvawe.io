@@ -102,7 +102,8 @@ function updateTNTres() {
     if (userInput) {
         document.querySelector(".label-mass").classList.add("active");
         TNTres = userInput * equivalent;
-        TNTresContainer.textContent = `тротиловий еквівалент: ${convertMass(TNTres)}`; } 
+        TNTresContainer.textContent = `тротиловий еквівалент: ${convertMass(TNTres)}`;
+    }
         
     else {
         const TNTres = null;
@@ -132,7 +133,8 @@ function updatePressure() {
         document.querySelector(".label-pressure").classList.add("active");
         pressure = (Peak_pressure(distInput, TNTres) * 1000).toFixed(2);
         highlightIntervals(pressure);
-        PressureContainer.textContent = `тиск: ${pressure} кПа =  ${(pressure * 0.0101972).toFixed(2)} ат`};     
+        PressureContainer.textContent = `тиск: ${pressure} кПа =  ${(pressure * 0.0101972).toFixed(2)} ат`;
+    }     
     else {
         PressureContainer.textContent = ""; 
     }
