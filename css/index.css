@@ -549,3 +549,8 @@ footer {
   font-family: "arsenal-bold";
   padding: 5px;
 }
+.highlight {
+    border-radius: 5px;
+    font-weight: bold;
+    background-color: var(--gray); 
+}
