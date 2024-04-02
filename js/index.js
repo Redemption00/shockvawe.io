@@ -7,13 +7,14 @@ window.addEventListener('load', function() {
     'img/loading2.png',
     'img/loading3.png',
     'img/loading4.png',
+    'img/loading4-1.png',
     'img/loading5.png',
     'img/loading6.png',
     'img/loading7.png',
     'img/loading8.png',
     'img/loading9.png',
     'img/loading10.png',
-    'img/loading11.png',
+    'img/loading11.png'
   ];
   let currentIndex = 0;
   let animationInterval;
