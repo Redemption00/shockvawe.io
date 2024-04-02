@@ -1,5 +1,38 @@
 // code.js
+/* loader */ 
+window.addEventListener('load', function() {
+    const loaderAnimation = document.getElementById('loader-animation');
+    const images = [
+    'img/loading1.png',
+    'img/loading2.png',
+    'img/loading3.png',
+    'img/loading4.png',
+    'img/loading5.png',
+    'img/loading6.png',
+    'img/loading7.png',
+    'img/loading8.png',
+    'img/loading9.png',
+    'img/loading10.png',
+    'img/loading11.png',
+  ];
+  let currentIndex = 0;
+  let animationInterval;
 
+  function animateLoader() {
+    loaderAnimation.src = images[currentIndex];
+    currentIndex = (currentIndex + 1) % images.length;
+    if (currentIndex === 0) {
+      clearInterval(animationInterval);    
+      const loader = document.getElementById('loader');
+      loader.style.display = 'none';
+    }
+  }
+  function startAnimation() {
+    animationInterval = setInterval(animateLoader, 1400 / images.length);
+  }
+
+  startAnimation();
+});
 /* формула є комбінацією практичного визначення тиску, методом підриву тротилу,
 * який провів Броде(1955р) і чисельного метода Вонґа(1995р)
  
