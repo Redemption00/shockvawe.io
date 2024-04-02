@@ -14,7 +14,7 @@ window.addEventListener('load', function() {
     'img/loading8.png',
     'img/loading9.png',
     'img/loading10.png',
-    'img/loading11.png'
+    'img/loading11.png',
   ];
   let currentIndex = 0;
   let animationInterval;
@@ -22,18 +22,36 @@ window.addEventListener('load', function() {
   function animateLoader() {
     loaderAnimation.src = images[currentIndex];
     currentIndex = (currentIndex + 1) % images.length;
+
     if (currentIndex === 0) {
-      clearInterval(animationInterval);    
+      clearInterval(animationInterval);
       const loader = document.getElementById('loader');
       loader.style.display = 'none';
     }
   }
+
   function startAnimation() {
     animationInterval = setInterval(animateLoader, 1500 / images.length);
   }
 
-  startAnimation();
+  function preloadImages() {
+    const promises = images.map(imageSrc => {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = resolve;
+        img.onerror = reject;
+        img.src = imageSrc;
+      });
+    });
+
+    Promise.all(promises)
+      .then(startAnimation)
+      .catch(err => console.error('Error preloading images:', err));
+  }
+
+  preloadImages();
 });
+  
 /* формула є комбінацією практичного визначення тиску, методом підриву тротилу,
 * який провів Броде(1955р) і чисельного метода Вонґа(1995р)
  
