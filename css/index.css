@@ -404,6 +404,18 @@ td {
   font-size: var(--td);
   border-bottom: dotted 1px var(--expl);
 }
+td.top-left {
+    background-image: url("../img/top_left.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+
+}
+td.bottom-right {
+    background-image: url("../img/bottom_right.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom right;
+  }
 section {
   padding-bottom: 45px;
   border-radius: 1.5mm;
@@ -549,10 +561,8 @@ footer {
   font-family: "arsenal-bold";
   padding: 5px;
 }
-.highlight {
-    border-radius: 5px;
-    font-weight: bold;
-    background-color: var(--gray); 
+.highlight {    
+    font-weight: bold;    
 }
 #loader {
   position: fixed;
