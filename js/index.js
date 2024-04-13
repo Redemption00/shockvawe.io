@@ -302,22 +302,7 @@ document.getElementById("close").addEventListener("click", function() {
   document.querySelector(".dimming-menu").classList.remove("dim-active");
   document.querySelector("body").classList.remove("dim-overflow");      
 });
-
-//хедер
-document.addEventListener("DOMContentLoaded", function() {
-  var header = document.querySelector("header");
-  var wasOpened = false;
-  window.onscroll = function() {
-    if (window.scrollY > 10 && !wasOpened) {
-      header.classList.add("moved");
-    }
-    else if (window.scrollY <= 10 && !wasOpened){
-      header.classList.remove("moved");
-      /* wasOpened = true;   */    
-    }
-  };
-});
-   
+ 
 /* підсвітка значень таблиці*/
 function highlightIntervals(pressure) {
   const tableRows = document.querySelectorAll(".tbl-content table tbody tr");
