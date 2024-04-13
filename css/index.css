@@ -18,7 +18,7 @@
   --expl-color:#49463C;
   --dist-color:#D0AA82;
   /* відступи */
-  --top-offset:  calc(2.6*var(--h1)); 
+  --top-offset:  calc(2*var(--h1)); 
   --arrow-size: calc(var(--option-font) + 14px);
   --options-width: calc(100% - 30px);
   --logo-size: calc(3.5*var(--h1));
@@ -76,15 +76,14 @@ main {
   background-color: var(--menu-color);
 }
 /*ім'я програми*/
-header {    
-   color: white; 
+header {   
    position: fixed;    
    display: flex; 
    top: 0;
    left:0;    
    width: 100%;   
    transition: transform 0.4s ease;   
-   z-index: 7;
+   z-index: 10;
 }
 .expand-menu{   
   display: flex;   
@@ -99,27 +98,18 @@ header {
 }
 .name {
   font-family: "arsenal-bold";     
-  background-color: var(--hcolor);   
+  background: linear-gradient(to top, rgba(225, 225, 225, 0.4),var(--background)); 
+  backdrop-filter: blur(10px); 
   width: 100%;
   position: absolute;
   text-align: center;
   text-transform: capitalize;        
-  padding-top: .5em;
+  padding-top: .6em;
 }
 .name a {       
   font-size: var(--h1); 
   padding-top: 8px;
  }
-.curved-border {
-  width: 100%;
-  height: 25px;
-  border-top-left-radius: 6mm;
-  border-top-right-radius: 6mm;
-  background-color: var(--background );    
-} 
-.moved {     
-  transform: translateX(-100%) scale(10%, 2%);
-} 
 .spec {
   display: flex;
   font-size: var(--spec); 
@@ -277,7 +267,7 @@ header {
 /*--маса --*/
 .mass-box, .pressure-box, .expl-box {
   display: flex;  
-  margin: 5vw 0 ;
+  margin: var(--h1) 0 ;
   } 
 .icon-mass, .icon-dist, .icon-expl {   
   display: flex;
@@ -404,11 +394,11 @@ td {
   font-size: var(--td);
   border-bottom: dotted 1px var(--expl);
 }
-td.top-left {
-    /*background-image: url("../img/top_left.png");
+td.top-right {
+    background-image: url("../img/top_right.png");
     background-repeat: no-repeat;
-    background-size: contain;*/
-
+    background-size: contain;
+    background-position: top right;
 }
 td.bottom-right {
     background-image: url("../img/bottom_right.png");
@@ -463,10 +453,9 @@ footer {
 } 
 .link-icon1 img, .link-icon2 img {
   margin: auto 10px;
-  width: 5vh;  
-  height: 5vh;   
+  width: var(--image-width);  
+  height: var(--image-width);   
 }
-/*  */
 .dimming-options{
   position: absolute;
   top: 0;
@@ -563,7 +552,7 @@ footer {
 }
 .highlight {    
   font-weight: bold;    
-  color:#89220bae;
+  color: var(--dist-color);
 }
 #loader {
   position: fixed;
