@@ -563,6 +563,7 @@ footer {
 }
 .highlight {    
   font-weight: bold;    
+  color:#89220bae;
 }
 #loader {
   position: fixed;
