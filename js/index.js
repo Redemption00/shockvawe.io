@@ -337,7 +337,7 @@ function highlightIntervals(pressure) {
         if (pressure >= min && pressure < closestMin) {
            cell.classList.add("highlight");
            }
-       } else if (i == n-1 && pressure >= min && n > 2){
+       } else if (i == n-1 && pressure >= min){
            cell.classList.add("highlight");
            }
       }
