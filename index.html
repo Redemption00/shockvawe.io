@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <meta charset="UTF-8">
     <!--стиль--> 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" type="text/css" href="./css/index.css">    
     <link rel="stylesheet" type="text/css" href="./css/img.css">    
     <!-- шрифти -->
@@ -90,7 +91,7 @@
                     <div class="option" data-value="1.46">МС</div>
                     <div class="option" data-value="1.25">ТМ</div>
                     <div class="option" data-value="1.23">ТГА (Torpex)</div>
-                    <div class="option" data-value="1.27">PETN</div>
+                    <div class="option" data-value="1.4">PETN</div>
                     <div class="option" data-value="1.22">A–IX–1</div>
                     <div class="option" data-value="1.55">A–IX–2</div>
                     <div class="option" data-value="1.22">A–IX–10 (Гекфол-5)</div>
@@ -171,6 +172,26 @@
                </div> 
            </div> 
        </div>
+       <div class="caution">
+            <p><svg width="13px" height="13px" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.225 21.225A1.678 1.678 0 0 0 2.707 22H22.28a1.68 1.68 0 0 0 1.484-.775 1.608 1.608 0 0 0 .003-1.656L13.995 1.827a1.745 1.745 0 0 0-2.969 0l-9.8 17.742a1.603 1.603 0 0 0 0 1.656zm.859-1.143l9.82-17.773A.71.71 0 0 1 12.508 2a.73.73 0 0 1 .629.342l9.751 17.708a.626.626 0 0 1 .017.662.725.725 0 0 1-.626.288H2.708a.723.723 0 0 1-.623-.286.605.605 0 0 1-.001-.632zM13 15h-1V8h1zm-1.5 2.5a1 1 0 1 1 1 1 1.002 1.002 0 0 1-1-1z"/>
+                <path fill="none" d="M0 0h24v24H0z"/></svg>
+            </p>
+            <p>Розрахунок відображає максимальний тиск наземного вибуху і не враховує ряд важливих факторів, таких як ландшафт. 
+             Відноситись як до інструменту знаходження верхньої межі тиску. Викорстаний матеріл з книги: “BLAST EFFECTS CAUSED BY EXPLOSIONS” AUTHORED BY B. GELFAND
+            </p>
+        </div>
+<!-- upd -->       
+       <div class="method">
+           <button style="width:50%" class="option-button selected" onclick="toggleOption(0)">
+               <p style="font-weight:bold;">Формула Гельфанда</p>
+               <p style="font-style:italic">Напівсферичний наземний вибух з урахуванням віддзеркалення від земної поверхні.</p>               
+           </button>
+           <button style="width:50%" class="option-button" onclick="toggleOption(1)">
+               <p style="font-weight:bold;">Формула Садовского</p>
+               <p style="font-style:italic">Метод для зарядів великої маси і відстані по відношенню до розмірів вибуху.</p>               
+           </button>
+       </div>       
        </main>  
        
        <section>
@@ -190,136 +211,136 @@
           <table cellpadding="0" cellspacing="0">
             <tbody>
                 <tr>          
-                    <td style="font-weight:bold">Піхота в полі</td>
+                    <td>Піхота в полі</td>
                     <td>10-30 кПа</td>
                     <td>30-50 кПа</td>
                     <td>50-100 кПа</td>
                 </tr>
                 <tr style="background-color:#90ff5513;">              
-                    <td style="font-style:italic; text-align: left;" colspan="3" >Запаморочення, головний біль, нудота та інші симптоми легкої контузії. Розрив барабанної перетинки, носова кровотеча.</td>                
+                    <td colspan="3" >Запаморочення, головний біль, нудота та інші симптоми легкої контузії. Розрив барабанної перетинки, носова кровотеча.</td>                
                     <td class="top-right">10-30 кПа</td>
                 </tr>
                 <tr style="background-color:#eeff6a20;">              
-                    <td style="font-style:italic; text-align: left;" colspan="3" >Короткочасна втрата свідомості, пам'яті, адинамія, розлад мовлення та інші прояви контузії. Кровотечі з носа і вух. Забої, переломи, вивихи.</td>                 
+                    <td colspan="3" >Короткочасна втрата свідомості, пам'яті, адинамія, розлад мовлення та інші прояви контузії. Кровотечі з носа і вух. Забої, переломи, вивихи.</td>                 
                     <td>30-50 кПа</td>
                 </tr>
                 <tr style="background-color:#ffdc0022;">              
-                    <td style="font-style:italic; text-align: left;" colspan="3" >Розриви внутрішніх органів, переломи кінцівок, шок, пошкодження середнього вуха. Симптоми струсу мозку з травматичною енцефалопатією, тривала втрата свідомості, порушення ковтання, розлади дихання, падіння артеріального тиску. Синці на боці, зверненому до вибуху.</td>                 
+                    <td colspan="3" >Розриви внутрішніх органів, переломи кінцівок, шок, пошкодження середнього вуха. Симптоми струсу мозку з травматичною енцефалопатією, тривала втрата свідомості, порушення ковтання, розлади дихання, падіння артеріального тиску. Синці на боці, зверненому до вибуху.</td>                 
                     <td>50-80 кПа</td>
                 </tr>
                 <tr style="background-color:#ff34001b;">              
-                    <td style="font-style:italic; text-align: left;" colspan="3" >Розриви грудної та черевної стінок. Множинні переломи кісток, ампутації кінцівок, сильний шок, важкі контузії.</td>                 
+                    <td colspan="3" >Розриви грудної та черевної стінок. Множинні переломи кісток, ампутації кінцівок, сильний шок, важкі контузії.</td>                 
                     <td class="bottom-right" >80-100 кПа</td>
                 </tr>
                 <tr>          
-                    <td style="font-weight:bold">Легка бронетехніка</td>
+                    <td>Легка бронетехніка</td>
                     <td>7 кПа</td>
                     <td>27 кПа</td>
                     <td>48 кПа</td>
                 </tr>
                 <tr>          
-                    <td style="font-weight:bold">Важка бронетехніка</td>
+                    <td>Важка бронетехніка</td>
                     <td>69 кПа</td>
                     <td>690 кПа</td>
                     <td>1380 кПа</td>
                 </tr>  
                 <tr>          
-                    <td style="font-weight:bold">Вантажні авто</td>
+                    <td>Вантажні авто</td>
                     <td>10 кПа</td>
                     <td>35 кПа</td>
                     <td>50-70 кПа</td>
                 </tr>           
                 <tr>          
-                    <td style="font-weight:bold">Дорога</td>
+                    <td>Дорога</td>
                     <td>34 кПа</td>
                     <td>55 кПа</td>
                     <td>82 кПа</td>
                 </tr>   
                 <tr>          
-                    <td style="font-weight:bold">Залізничні колії</td>
+                    <td>Залізничні колії</td>
                     <td>125 кПа</td>
                     <td>175 кПа</td>
                     <td>250-400 кПа</td>
                 </tr>    
                 <tr>          
-                    <td style="font-weight:bold">Металеві, залізобетонні мости</td>
+                    <td>Металеві, залізобетонні мости</td>
                     <td>100-150 кПа</td>
                     <td>150-200 кПа</td>
                     <td>200-300 кПа</td>
                 </tr>           
                 <tr>          
-                    <td style="font-weight:bold">Житлова будівля</td>
+                    <td>Житлова будівля</td>
                     <td>10-20 кПа</td>
                     <td>20-30 кПа</td>
                     <td>30-50 кПа</td>
                 </tr>            
                 <tr>          
-                    <td style="font-weight:bold">ТЕС</td>
+                    <td>ТЕС</td>
                     <td>10-15 кПа</td>
                     <td>15-20 кПа</td>
                     <td>20-40 кПа</td>
                 </tr>                  
                 <tr>          
-                    <td style="font-weight:bold">ЛЕП</td>
+                    <td>ЛЕП</td>
                     <td>20-40 кПа</td>
                     <td>50-70 кПа</td>
                     <td>80-200 кПа</td>
                 </tr>  
                 <tr>          
-                    <td style="font-weight:bold">Трансформаторні підстанції</td>
+                    <td>Трансформаторні підстанції</td>
                     <td>10-20 кПа</td>
                     <td>20-40 кПа</td>
                     <td>40-100 кПа</td>
                 </tr> 
                 <tr>          
-                    <td style="font-weight:bold">Металеві, залізобетонні мости</td>
+                    <td>Металеві, залізобетонні мости</td>
                     <td>100-150 кПа</td>
                     <td>150-200 кПа</td>
                     <td>200-300 кПа</td>
                 </tr>                                                                  
                 <tr>          
-                    <td style="font-weight:bold">Цистерни</td>
+                    <td>Цистерни</td>
                     <td>30 кПа</td>
                     <td>50 кПа</td>
                     <td>70-80 кПа</td>
                 </tr>      
                 <tr>          
-                    <td style="font-weight:bold">Водонапірні вежі</td>
+                    <td>Водонапірні вежі</td>
                     <td>10-20 кПа</td>
                     <td>20-40 кПа</td>
                     <td>40-70 кПа</td>
                 </tr>  
                    <tr>          
-                    <td style="font-weight:bold" colspan="3">Руйнування вікон великої площі</td>                  
+                    <td colspan="3">Руйнування вікон великої площі</td>                  
                     <td>0.2 кПа</td>
                 </tr>     
                 <tr>          
-                    <td style="font-weight:bold" colspan="3">5% скло покриття; гучний звук(143дБ)</td>                    
+                    <td colspan="3">5% скло покриття; гучний звук(143дБ)</td>                    
                     <td>0.3-0.5 кПа</td>
                 </tr>        
                 <tr>          
-                    <td style="font-weight:bold" colspan="3">10% скло покриття; пошкодження обшивка будинків</td>                    
+                    <td colspan="3">10% скло покриття; пошкодження обшивка будинків</td>                    
                     <td>2.1 кПа</td>
                 </tr>     
                  <tr>          
-                    <td style="font-weight:bold" colspan="3">90% скло покриття; руйнування віконних рам</td>                    
+                    <td colspan="3">90% скло покриття; руйнування віконних рам</td>                    
                     <td>4.0 кПа</td>
                 </tr>  
                 <tr>          
-                    <td style="font-weight:bold" colspan="3">Незначне пошкодження конструкцій будинків</td>                    
+                    <td colspan="3">Незначне пошкодження конструкцій будинків</td>                    
                     <td>5.0 кПа</td>
                 </tr>     
                 <tr>          
-                    <td style="font-weight:bold" colspan="3">Часткове руйнування будинків, не придатне для проживання</td>                  
+                    <td colspan="3">Часткове руйнування будинків, не придатне для проживання</td>                  
                     <td>7.2 кПа</td>
                 </tr>    
                  <tr>          
-                    <td style="font-weight:bold" colspan="3">Викривлення сталевих конструкцій</td>
+                    <td colspan="3">Викривлення сталевих конструкцій</td>
                     
                     <td>9.2 кПа</td>
                 </tr>    
                  <tr>          
-                    <td style="font-weight:bold" colspan="3">Часткове руйнування стін і даху</td>             
+                    <td colspan="3">Часткове руйнування стін і даху</td>             
                     <td>14.5 кПа</td>
                 </tr>    
                </tbody>
