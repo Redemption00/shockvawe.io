@@ -52,30 +52,54 @@ window.addEventListener('load', function() {
   preloadImages();
 });
   
-/* формула є комбінацією практичного визначення тиску, методом підриву тротилу,
-* який провів Броде(1955р) і чисельного метода Вонґа(1995р)
- 
-*змінні: 
+
+/*змінні: 
+*тиск в МПа = 1000кПа
 *Rd - відстань масштабування;
 *distance - відстань(м);
 *mass - еквівалентна маса тротилу(кг)
 */ 
-function Peak_pressure(distance, mass) {
-    const Rd = distance / (mass ** (1/3));
-      
-    if ( Rd >= 0.05 && Rd < 0.3) { 
-        return (1.379/Rd) + (0.543/(Rd ** 2)) - (0.035/(Rd ** 3)) + (0.006/(Rd ** 4));
+   
+/* Метод Гельфанда */
+ function peakPressure_Gelfand(distance, mass) {
+    let Rd = distance / (mass ** (1/3));
+    let P;
+
+    if (Rd >= 8) {
+        P = 8000 * Math.exp(-10.46 * Math.pow(Rd, 0.1));
+    } else if (Rd >= 0.1) {
+        P = 1700 * Math.exp(-7.14 * Math.pow(Rd, 0.28)) + 0.0156;
+    } else {
         
-     } else if (Rd >= 0.3 && Rd <= 0.5) {
-        return (0.607/Rd) - (0.032/(Rd ** 2)) + (0.209/(Rd ** 3));
-         
-     } else if (Rd > 0.5) {
-        return (0.082/Rd) + (0.26/(Rd ** 2)) + (0.69/(Rd ** 3));
-        
-     } else {
-        return null;
-     } 
-   }
+        P = null;
+    }
+
+    return P;
+}
+
+/* метод Генріха-Майора (1979) */
+function peakPressure_Major(distance, mass) {
+    let R = distance / Math.pow(2 * mass, 1/3); /* формула повітряного типу. Вибух наземного типу включатиме відбиту хвилю, в ідалі повністю, тому ми маємо подвоїти масу, аналогічно формули Садовского*/
+    let P;
+
+    if (R >= 1 && R <= 10) {
+        P = (0.0649 / R) + (0.397 / Math.pow(R, 2)) + (0.322 / Math.pow(R, 3));
+    } else if (R >= 0.3 && R < 1) {
+        P = (0.607 / R) - (0.032 / Math.pow(R, 2)) + (0.209 / Math.pow(R, 3));
+    } else if (R >= 0.05 && R < 0.3) {
+        P = (1.380 / R) + (0.543 / Math.pow(R, 2)) - (0.035 / Math.pow(R, 3)) + (0.000613 / Math.pow(R, 4));
+    } else {
+       
+        P = null;
+    }
+
+    return P;
+}
+/*Метод Садовского*/   
+function peakPressure_Sadovsky(distance, mass) {
+    Rd = (mass/1000)**(1/3)
+    return (1.06*Rd/distance) + (4.3*Rd**2)/(distance**2) + (1400*Rd**3)/(distance**3);
+}
    
 /* конвертер маси */   
 function convertMass(kgmass) {
@@ -93,24 +117,14 @@ function convertMass(kgmass) {
 }
  
 const options = document.querySelector('.options');
-/* const selectedText = document.querySelector('.select-expl'); */
 const equivalentValueElement = document.querySelector('.equivalent-value');
-const massIcon = document.querySelector(".icon-mass")
-const explIcon = document.querySelector(".icon-expl")
-const distIcon = document.querySelector(".icon-dist")
 let equivalentValue = 1; //за замовчуванням = тротил
 var searchLine = document.querySelector(".select-expl");
 
 searchLine.onclick = function () {
     let list = this.nextElementSibling;    
     if (list.style.maxHeight) {
-        this.classList.remove("open");
-        explIcon.style.backgroundColor = "var(--expl-color)";
-        massIcon.style.backgroundColor = "var(--mass-color)";
-        distIcon.style.backgroundColor = "var(--dist-color)"; 
-        changeImage("icon-expl", "img/init_charge.png", "img/explosion-light.png");
-        changeImage("icon-mass", "img/booster_charge1.png", "img/mass-light.png");
-        changeImage("icon-dist", "img/main_charge.png", "img/distance-light.png");                     
+        this.classList.remove("open");              
         list.style.maxHeight = null;
         list.style.boxShadow = null;    
         list.style.opacity = null;
@@ -121,12 +135,7 @@ searchLine.onclick = function () {
         this.classList.add("open")
         list.style.maxHeight = "75vh";
         list.style.opacity = "1";           
-        explIcon.style.backgroundColor = "#fff";
-        massIcon.style.backgroundColor = "#fff";
-        distIcon.style.backgroundColor = "#fff"; 
-        changeImage("icon-expl", "img/explosion-light.png", "img/init_charge.png");
-        changeImage("icon-mass", "img/mass-light.png", "img/booster_charge1.png");
-        changeImage("icon-dist", "img/distance-light.png", "img/main_charge.png");                
+        
         document.querySelector(".dimming-options").classList.add("dim-active");
         document.querySelector("body").classList.add("dim-overflow");
         options.addEventListener('click', (event) => {
@@ -137,12 +146,7 @@ searchLine.onclick = function () {
                     searchLine.textContent = `${selectedOptionText}`;
                     equivalentValue = clickedOption.getAttribute('data-value');
                     equivalentValueElement.textContent = `${equivalentValue}`;      
-                    explIcon.style.backgroundColor = "var(--expl-color)";
-                    massIcon.style.backgroundColor = "var(--mass-color)";
-                    distIcon.style.backgroundColor = "var(--dist-color)";          
-                    changeImage("icon-expl", "img/init_charge.png", "img/explosion-light.png");
-                    changeImage("icon-mass", "img/booster_charge1.png", "img/mass-light.png");
-                    changeImage("icon-dist", "img/main_charge.png", "img/distance-light.png");                             
+                             
                     list.style.maxHeight = null;
                     list.style.boxShadow = null;    
                     list.style.opacity = null;
@@ -191,7 +195,13 @@ var pressure = null;
 function updatePressure() { 
     if (distInput && TNTres) {
         document.querySelector(".label-pressure").classList.add("active");
-        pressure = (Peak_pressure(distInput, TNTres) * 1000).toFixed(2);
+        
+        if (selectedMethod == 1) {
+            pressure = (peakPressure_Sadovsky(distInput, TNTres) * 1000).toFixed(2);
+        } else if (selectedMethod == 0) {
+            pressure = (peakPressure_Gelfand(distInput, TNTres) * 1000).toFixed(2);
+        }  
+        
         highlightIntervals(pressure);
         PressureContainer.textContent = `тиск: ${pressure} кПа =  ${(pressure * 0.0101972).toFixed(2)} ат`; }         
     else {        
@@ -302,7 +312,8 @@ document.getElementById("close").addEventListener("click", function() {
   document.querySelector(".dimming-menu").classList.remove("dim-active");
   document.querySelector("body").classList.remove("dim-overflow");      
 });
- 
+
+
 /* підсвітка значень таблиці*/
 function highlightIntervals(pressure) {
   const tableRows = document.querySelectorAll(".tbl-content table tbody tr");
@@ -326,7 +337,7 @@ function highlightIntervals(pressure) {
         if (pressure >= min && pressure < closestMin) {
            cell.classList.add("highlight");
            }
-       } else if (i == n-1 && pressure >= min){
+       } else if (i == n-1 && pressure >= min && n > 2){
            cell.classList.add("highlight");
            }
       }
@@ -343,5 +354,52 @@ function parseInterval(interval) {
     max = null;
   }
   return min;
-     }
- 
+}
+
+/* toggle */
+let selectedMethod = 0;
+
+    function toggleOption(option) {
+      if (option === selectedMethod) {
+        return;
+      }
+
+      // Скасувати попередній вибір
+      document.querySelectorAll(".option-button")[selectedMethod].classList.remove("selected");
+
+      // Вибір нової опції
+      selectedMethod = option;
+      document.querySelectorAll(".option-button")[selectedMethod].classList.add("selected");   
+      updatePressure()   
+    }
+
+    // Обрати метод за замовчуванням 
+    document.querySelectorAll(".option-button")[0].classList.add("selected");
+
+/* ripple affect*/    
+  function createRipple(event) {
+  const button = event.currentTarget;
+
+  const circle = document.createElement("span");
+  const diameter = Math.max(button.clientWidth, button.clientHeight);
+  const radius = diameter / 2;
+
+  circle.style.width = circle.style.height = `${diameter}px`;
+  circle.style.left = `${event.clientX - button.offsetLeft - radius}px`;
+  circle.style.top = `${event.clientY - button.offsetTop - radius}px`;
+  circle.classList.add("ripple");
+
+  const ripple = button.getElementsByClassName("ripple")[0];
+
+  if (ripple) {
+    ripple.remove();
+  }
+
+  button.appendChild(circle);
+}
+
+const buttons = document.getElementsByTagName("button");
+for (const button of buttons) {
+  button.addEventListener("click", createRipple);
+}
+    
