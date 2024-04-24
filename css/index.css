@@ -375,7 +375,6 @@ header {
   display: flex;  
   margin: var(--h1) 0 ;
   } 
-
   /* upd */
 .pressure-box{
   margin-bottom: 0;
@@ -406,7 +405,6 @@ header {
   transition: opacity 0.3s ease-in-out; 
   z-index: 6;
   }
-
 .icon-expl img{
   z-index: 6;
  }   
@@ -435,8 +433,9 @@ header {
 }
 .label-mass, .label-pressure {
   font-size: var(--td);
-   background-color: var(--input-line-color);
-  font-family: "arsenal-semibold", monospace;
+  background-color: var(--input-line-color);
+  font-family: "arsenal", monospace;
+  font-weight: bold;
   padding: 1px 5px;
   position:absolute;
   top: 0; 
@@ -638,7 +637,8 @@ footer {
 .menu-header p {
   font-size: var(--td);
   color: black;
-  font-family: "arsenal-mediumitalic";
+  font-family: "arsenal";
+  font-weight:bold;
   padding: 5px;
   }  
 .highlight{
