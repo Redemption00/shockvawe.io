@@ -177,13 +177,13 @@ span.ripple {
   }
 }       
 td.top-right {
-  background-image: url("../icons/top_right.png");
+  background-image: url("../img/top_right.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: top right;
 }
 td.bottom-right {
-  background-image: url("../icons/bottom_right.png");
+  background-image: url("../img/bottom_right.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: bottom right;    
@@ -293,7 +293,7 @@ header {
 }
 .select-expl::before {
   content: "";
-  background: url("../icons/expand-more-dark.png") no-repeat;
+  background: url("../img/expand-more-dark.png") no-repeat;
   background-size: contain;
   position: absolute;
   top: 50%;
@@ -377,7 +377,7 @@ header {
   border-radius: 1.5mm;
   border: none;
   font-size: var(--select-font);
-  background-image: url("../icons/search_black_24dp.svg");
+  background-image: url("../img/search_black_24dp.svg");
   background-repeat: no-repeat;
   background-position: 8px center; 
   background-size: 20px;
@@ -404,7 +404,6 @@ header {
   justify-content: center;
   box-shadow: 0 1px 1px #D0C898;
   align-items: center;
-  /* border: 1px solid var(--border-color);   */ 
   border-radius: 3mm;
   padding: 3px;
   }
@@ -454,8 +453,7 @@ header {
 .label-mass, .label-pressure {
   font-size: var(--td);
   background-color: var(--input-line-color);
-  font-family: "arsenal", monospace;
-  font-weight: bold;
+  font-family: "arsenal-bold", monospace;
   padding: 1px 5px;
   position:absolute;
   top: 0; 
