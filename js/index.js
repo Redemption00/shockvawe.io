@@ -321,26 +321,32 @@ function highlightIntervals(pressure) {
   tableRows.forEach((row) => {
     const cells = row.querySelectorAll("td");
     const n = cells.length;
-   
+
     for (let i = 1; i < n; i++) {
       const cell = cells[i];
       const interval = cell.textContent.trim();
       const min = parseInterval(interval);
 
+      const span = document.createElement("span");
+      span.textContent = interval;
+      cell.innerHTML = "";
+      cell.appendChild(span);
+
       cell.classList.remove("highlight");
 
       if (i < n - 1) {
-        const closestCell = cells[i+1];
+        const closestCell = cells[i + 1];
         const closestInterval = closestCell.textContent.trim();
         const closestMin = parseInterval(closestInterval);
-        
+
         if (pressure >= min && pressure < closestMin) {
-           cell.classList.add("highlight");
-           }
-       } else if (i == n-1 && pressure >= min){
-           cell.classList.add("highlight");
-           }
+          span.classList.add("highlight"); 
+          
+        }
+      } else if (i === n - 1 && pressure >= min) {
+        span.classList.add("highlight"); 
       }
+    }
   });
 }
 function parseInterval(interval) {
