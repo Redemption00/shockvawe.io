@@ -35,27 +35,8 @@
   /* радіус граней*/
   --radius: 3mm;
  }
- 
 /* upd */
-.en { 
-      display: none;
-    }
-#loader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--background);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-#loader-animation {
-  width: 150px; 
-  height: 150px;
-}
+
 /*  */
 @media only screen and (max-width: 319px) {
   :root {
@@ -87,6 +68,31 @@
     --h1: 24px; 
   }    
 }  
+.en { 
+      display: none;
+    }
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+#loader-animation {
+  width: 100px; 
+  height: 100px;
+}
+.name img{
+  position: absolute;
+  width: var(--h1);
+  height: var(--h1);
+  left: 10px;
+}
 form{
    border-radius: 5mm;   
    background-color: var(--input-line-color);
@@ -97,8 +103,7 @@ form{
     margin: 5px 0 0 0;    
     display: flex;    
     flex: 1;
-    font-size: 9px;
-    
+    font-size: 9px;    
  }
 .caution p {
    display: flex;
@@ -165,7 +170,6 @@ span.ripple {
   animation: ripple 600ms linear;
   background-color: rgba(255, 255, 255, 0.7);
 }
-
 @keyframes ripple {
   to {
     transform: scale(4);
@@ -230,7 +234,7 @@ header {
    left:0;    
    width: 100%;   
    transition: transform 0.4s ease;   
-   z-index: 10;
+   z-index: 9;
 }
 .material-symbols-outlined {
   position: absolute;
@@ -584,7 +588,7 @@ footer {
   width: 100%;
   height: 100%;  
   transition: background-color 0.3s ease;
-  z-index: 6;    
+  z-index: 7;    
 }
 .dim-active{
   display: flex;
@@ -602,7 +606,7 @@ footer {
   height: 100%;  
   background-color:var(--menu-color); 
   transition: left 0.3s ease; 
-  z-index: 10;  
+  z-index: 9;  
 }
 .side-menu ul {
   list-style: none;
