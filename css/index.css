@@ -491,6 +491,8 @@ header {
 }  
 .filler-pressure{
   color: var(--font-color);
+  align-content: flex;
+  position: relative;
 }
  /* таблиці */
 table {
