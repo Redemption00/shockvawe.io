@@ -115,7 +115,24 @@ function convertMass(kgmass) {
         return (kgmass / 1000000000).toFixed(3) + " Мт";
     }
 }
- 
+/* конвертер тиску */
+function convertPressure(pressureInKpa, unit) {
+  const conversionFactors = {
+    kPa: 1,
+    at: 0.01019, // 1at= 98 kPa
+    bar: 0.01,   // 1bar=100 kPa
+    psi: 0.145038,// 1psi=6.894757 kPa 
+  };
+  const units = {
+    kPa: "кПа",
+    at: "ат",
+    bar: "бар",
+    psi: "psi",
+  };
+  const convertedPressure = pressureInKpa * conversionFactors[unit];
+  return `тиск: ${convertedPressure.toFixed(2)} ${units[unit]}`;
+};
+
 const options = document.querySelector('.options');
 const equivalentValueElement = document.querySelector('.equivalent-value');
 let equivalentValue = 1; //за замовчуванням = тротил
@@ -203,7 +220,7 @@ function updatePressure() {
         }  
         
         highlightIntervals(pressure);
-        PressureContainer.textContent = `тиск: ${pressure} кПа =  ${(pressure * 0.0101972).toFixed(2)} ат`; }         
+        PressureContainer.textContent = convertPressure(pressure, selectedPressureUnit);}      
     else {        
         PressureContainer.textContent = "";        
     }
@@ -408,4 +425,21 @@ const buttons = document.getElementsByTagName("button");
 for (const button of buttons) {
   button.addEventListener("click", createRipple);
 }
-    
+/* юніти тиску */
+const pressureUnitSelector = document.getElementById('UnitSelectorIcon');
+const pressureUnitMenu = document.getElementById("pressure-unit-selector");
+
+pressureUnitSelector.addEventListener('click', () => {
+  pressureUnitMenu.style.display = pressureUnitMenu.style.display === 'none' ? 'block' : 'none';
+});
+
+const pressureUnitRadios = document.querySelectorAll("input[name='pressure-unit']");
+let selectedPressureUnit = 'kPa'; // кПа за замовчуванням 
+
+pressureUnitRadios.forEach(radio => {
+  radio.addEventListener('change', () => {
+    selectedPressureUnit = radio.value;   
+    pressureUnitMenu.style.display = "none" ;
+  });
+});
+
