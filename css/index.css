@@ -16,7 +16,7 @@
   --menu-color:#F1EFE3;
   /* іконки */
   --mass-color:#D6AC8A;
-  --expl-color:#EFA07E;
+  --expl-color:#DBC1A4;
   --dist-color:#88B3BA;
   /* відступи */
   --top-offset:  calc(1*var(--h1)); 
@@ -660,7 +660,66 @@ footer {
   padding: 5px;
   }  
 .highlight{
-  background-color: #e4711345;
+  padding: 2px;
+  background-color: #ffc8804e;
   font-weight: bold;
 }
+#UnitSelectorIcon {
+  position: absolute;
+  right: 10px;
+  top: 3px;
+  width: 20px;
+  height: 20px;    
+}
+#pressure-unit-selector {
+  position: absolute;
+  right: 0;
+  display: flex;
+  background-color: var(--background);
+  border-radius: var(--radius);
+  box-shadow: 0 1px 2px #D0C898;
+  padding: 10px;
+  align-items: center;
+  z-index: 2;
+  display: none;
+}
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.radio-option {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+.radio-option label {
+  margin-left: 8px;
+  font-size: var(--select-font);
+  color: var(--font-color);
+}
+.radio-option:hover {
+  background-color: #f5f5f5;
+}
+.radio-option input[type="radio"]:checked + label {
+  color: #2196f3;
+}
+.radio-option input[type="radio"]:checked {
+  position: relative;
+}
+.radio-option input[type="radio"]:checked::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px; 
+  border-radius: 50%;
+  background-color: var(--dist-color);
+  border: 3px solid var(--background); 
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
   
