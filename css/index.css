@@ -15,7 +15,7 @@
   --hcolor:#db9925dd;
   --menu-color:#F1EFE3;
   /* іконки */
-  --mass-color:#D6AC8A;
+  --mass-color:#BCB5AD;
   --expl-color:#DBC1A4;
   --dist-color:#88B3BA;
   /* відступи */
@@ -28,7 +28,7 @@
   /* розмір шрифтів */
   --spec: calc(.6*var(--h1));  
   --option-font: calc(.8*var(--h1)); 
-  --select-font: calc(.65*var(--h1));
+  --select-font: calc(.6*var(--h1));
   --th: calc(.6*var(--h1));
   --td: calc(.51*var(--h1));
   --h1: 20px;  
@@ -507,6 +507,7 @@ table {
 .tbl-content { 
   overflow-x:auto;
   background-color: var(--input-line-color);
+  border: 1px solid var(--border-color);
 }
 th {
   font-weight: bold;
@@ -517,11 +518,15 @@ th {
   font-family: "dots";
 }
 td {
-  padding: 12px 20px;
+  padding: 12px;
   text-align: left;
   vertical-align:middle;
   font-size: var(--td);
-  border-bottom: 1px dotted var(--font-color);
+  border-bottom: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
 }
 /*посилання*/
 footer {   
