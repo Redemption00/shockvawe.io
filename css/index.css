@@ -288,7 +288,7 @@ header {
   border-top-right-radius:var(--radius);
   border-top-left-radius: var(--radius);
   font-size: var(--option-font); 
-  padding: 9px;
+  padding: 13px;
   z-index: 8;
 }
 .select-expl::before {
@@ -442,7 +442,7 @@ header {
   font-size: var(--option-font);
   font-family: "arsenal", monospace;
   color: var(--font-color);
-  padding: 9px;
+  padding: 13px;
 }  
 #massInput:focus, #Distance:focus{
   outline:none;
@@ -455,7 +455,7 @@ header {
   background-color: var(--input-line-color);
   font-family: "arsenal-bold", monospace;
   padding: 1px 5px;
-  position:absolute;
+  position: absolute;
   top: 0; 
   left: 25px;
   transition: opacity 0.3s ease-in-out, top 0.3s ease-in-out; 
@@ -510,12 +510,11 @@ table {
   border: 1px solid var(--border-color);
 }
 th {
-  font-weight: bold;
   padding: 12px;
-  text-align: left;
+  text-align: center;
   font-size: var(--th);
   text-transform: uppercase;
-  font-family: "dots";
+  font-family: "arsenal-bold";
 }
 td {
   padding: 12px;
