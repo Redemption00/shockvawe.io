@@ -288,7 +288,7 @@ header {
   border-top-right-radius:var(--radius);
   border-top-left-radius: var(--radius);
   font-size: var(--option-font); 
-  padding: 13px;
+  padding: 10px;
   z-index: 8;
 }
 .select-expl::before {
@@ -442,7 +442,7 @@ header {
   font-size: var(--option-font);
   font-family: "arsenal", monospace;
   color: var(--font-color);
-  padding: 13px;
+  padding: 10px;
 }  
 #massInput:focus, #Distance:focus{
   outline:none;
@@ -507,7 +507,6 @@ table {
 .tbl-content { 
   overflow-x:auto;
   background-color: var(--input-line-color);
-  border: 1px solid var(--border-color);
 }
 th {
   padding: 12px;
@@ -521,8 +520,7 @@ td {
   text-align: left;
   vertical-align:middle;
   font-size: var(--td);
-  border-bottom: 1px solid var(--border-color);
-  border-right: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--filler-line-color);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: normal;
