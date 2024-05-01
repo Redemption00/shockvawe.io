@@ -15,9 +15,9 @@
   --hcolor:#db9925dd;
   --menu-color:#F1EFE3;
   /* іконки */
-  --mass-color:#BCB5AD;
-  --expl-color:#DBC1A4;
-  --dist-color:#88B3BA;
+  --mass-color:#83B5B2;
+  --expl-color:#A9D291;
+  --dist-color:#A1AF96;
   /* відступи */
   --top-offset:  calc(1*var(--h1)); 
   --arrow-size: calc(var(--option-font) + 14px);
@@ -510,10 +510,10 @@ table {
 }
 th {
   padding: 12px;
-  text-align: center;
+  text-align: left;
   font-size: var(--th);
   text-transform: uppercase;
-  font-family: "arsenal-bold";
+  font-family: "Dots";
 }
 td {
   padding: 12px;
