@@ -29,7 +29,7 @@ window.addEventListener('load', function() {
   }
 
   function startAnimation() {
-    animationInterval = setInterval(animateLoader, 1500 / images.length);
+    animationInterval = setInterval(animateLoader, 1100 / images.length);
   }
 
   function preloadImages() {
