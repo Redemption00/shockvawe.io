@@ -3,18 +3,16 @@
 window.addEventListener('load', function() {
     const loaderAnimation = document.getElementById('loader-animation');
     const images = [
-    'img/loading1.png',
-    'img/loading2.png',
-    'img/loading3.png',
-    'img/loading4.png',
-    'img/loading4-1.png',
-    'img/loading5.png',
-    'img/loading6.png',
-    'img/loading7.png',
-    'img/loading8.png',
-    'img/loading9.png',
-    'img/loading10.png',
-    'img/loading11.png',
+    'img/expal1.png',
+    'img/expal2.png',
+    'img/expal3.png',
+    'img/expal4.png',
+    'img/expal5.png',
+    'img/expal6.png',
+    'img/expal7.png',
+    'img/expal8.png',
+    'img/expal9.png',
+    'img/expal10.png',
   ];
   let currentIndex = 0;
   let animationInterval;
