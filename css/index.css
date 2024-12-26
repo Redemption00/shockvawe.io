@@ -84,8 +84,8 @@
   z-index: 9999;
 }
 #loader-animation {
-  width: 100px; 
-  height: 100px;
+  width: 150px; 
+  height: 150px;
 }
 .name img{
   position: absolute;
