@@ -533,6 +533,7 @@ footer {
   right: 0;
   width: 100%;
   background-color: var(--filler-line-color);
+  z-index:7;
 }
 .footer-content {  
   display: flex; 
