@@ -50,9 +50,6 @@
   --expl-color:#DFDFD5;
   --dist-color:#282B3E;
   /* відступи */
-  --top-offset: var(--h1); 
-  --arrow-size: calc(var(--option-font) + 14px);
-  --options-width: 100%;
   --logo-size: calc(3.5*var(--h1));
   --spec-top: calc(.7*var(--h1));
   --image-width: calc(1.9*var(--h1));
@@ -65,7 +62,6 @@
   --radius: 3mm;
     }
 /* upd */
-
 .ripple {
   position: absolute;
   border-radius: 50%;
@@ -169,7 +165,7 @@ form {
    margin: var(--h1) 0;
    }
 .caution {
-    margin: 5px 0 0 0;    
+    margin-top: 0;
     display: flex;    
     flex: 1;
     font-size: 9px;    
@@ -181,66 +177,19 @@ form {
    align-self: stretch;
    padding: 1px 5px;
     }
-.option-button {
-   flex: 1;
-   color: var(--light);
-   position: relative;
-   display: flex;
-   flex-direction: column;
-   align-items: stretch;
-   align-self: stretch;
-   overflow: hidden;
-   transition: background 400ms;  
-   background-color: var(--input-line-color);      
-   border: 1px solid var(--background);       
-   border-radius: var(--radius);
-   padding: 5px;
-   text-align: center;      
-   text-decoration: none;      
-   font-size: var(--td);
-   margin: 0;
-   cursor: pointer;
-    }
-.option-button:nth-child(1){
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    }
-.option-button:nth-child(2){
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    }
-.option-button.selected {
-    background-color: #E6A477;
-    color: var(--font-color);
-    }
-.option-button.selected p:nth-child(1):before {
-    font-family: 'Material Icons';
-    content: "check";
-    margin-right: 5px;          
-    }  
-.method{
-    font: inherit;
-    width: 100%;
-    margin-bottom: var(--h1);
-    text-align: center;
-    display:flex;       
-    align-items: stretch;
-        }
-    .method p{
-      margin: 4px 0;             
-    }
-    .method p:nth-child(2){
-        font-size: 10px;
-    }
-    
+
 /* upd_end */
 body {
-  display: flex;
+  max-width: 600px;       
+  width: 100%;           
+  margin: 0 auto;      
+  padding: 0;       
+  overflow-x: hidden;
   flex-direction: column;  
   background-color: var(--background ); 
   color: var(--font-color);
   font-family: "Rubik", serif;
-  
+  max-width: 500px;  
   }
 main {  
   position: relative;
@@ -248,15 +197,15 @@ main {
   max-width: 100%;
   font-family: "Rubik", serif;
   font-optical-sizing: auto;
-  f
   font-style: normal;
-  font-variation-settings: "wdth" 100;
+  padding-bottom: 40px;
+
   }
 .main-box{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
-    } 
+  padding-top: 0;  
+    }   
 .det{
   border: 1px solid var(--input-line-color);
   border-radius: var(--radius);
@@ -285,13 +234,12 @@ header {
   width: 100%;
   text-align: center;
   text-transform: capitalize;        
-  padding: .6em 0 .6em 0;
   display: flex;
   align-items: center; 
   justify-content: space-between; 
   width: 100%;
   position: relative;
-  padding: 25px 0;
+  padding: 20px 0;
     }
 .name a {       
   font-size: var(--h1); 
@@ -316,110 +264,7 @@ header {
   position: relative;
   padding-left: 10px;
     }
-.select-expl {
-  background-color: var(--input-line-color);
-  position: relative;
-  cursor: pointer;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-  border: 2px solid var(--border-color);
-  box-sizing: border-box;
-  border-top-right-radius:var(--radius);
-  border-top-left-radius: var(--radius);
-  font-size: var(--option-font); 
-  padding: 10px;
-  z-index: 8;
-  
-  -webkit-tap-highlight-color: transparent;   
-  user-select: none; 
-  outline: none;
-}
 
-.select-expl:empty::after {
-  content: "Тротил";
-  color: rgba(0, 0, 0, 0.5);
-}  
-.options {
-  display: flex;
-  position: absolute;
-  background-color: var(--input-line-color);
-  transform: translateZ(0);
-  max-height: 0;
-  width: var(--options-width);
-  top: 70%;
-  border-radius: var(--radius);
-  font-size: var(--select-font);   
-  justify-content: space-between;
-  flex-direction: column; 
-  overflow-y: scroll; 
-  scroll-behavior: smooth;  
-  opacity: 0;
-  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
-  z-index: 8;  
-} 
-.open {
-  outline: 2px solid var(--filler-color);
-  }
-/* WebKit browsers (Chrome/Safari) */
-.options::-webkit-scrollbar {
-  width: 8px; 
-  }
-.options::-webkit-scrollbar-thumb {
-  background-color: var(--light); 
-  border-radius: 6px; 
-  }
-.options::-webkit-scrollbar-track {
-  background-color: var(--filler-color);
-  }
-/* Firefox */
-.options {
-  scrollbar-width: thin; 
-  }
-.options::-moz-scrollbar-thumb {
-  background-color: var(--dark); 
-  border-radius: 6px; 
-  }
-.options::-moz-scrollbar-track {
-  background-color: var(--filler-color);
-  }
-.option {    
-   position: relative;
-   padding: 8px;
-   font-size: var(--select-font);
-   text-align: left;
-} 
-.options .option:hover {
-  background: rgba(0, 0, 0, 0.08);
-}
-.search-box {
-  display: flex;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 10px 4px;
-}
-#search {
-  display: block;
-  background-color: var(--filler-line-color);
-  width: 100%;
-  box-sizing: border-box;
-  border-radius: var(--radius);
-  border: none;
-  font-size: var(--select-font);
-  background-image: url("../img/search_black_24dp.svg");
-  background-repeat: no-repeat;
-  background-position: 8px center; 
-  background-size: 20px;
-  padding: 8px;
-  padding-left: 35px;
-}
-#search::-webkit-search-cancel-button { 
- display: none;
- }
-#search:hover{
-  outline: 1px solid #ccc;
-  }
 /*--маса --*/
 .input-box {
   display: flex;  
@@ -466,71 +311,7 @@ header {
 .icon-expl img{
   z-index: 6;
  }   
-.input-line{
 
-  width: 100%;
-  position: relative;
-  padding: 0 0 0 10px;
-  } 
-#explosive-mass, #cylinder-mass, #cylinder-thickness, #cylinder-diameter {
-  width: 100%;
-  background-color: var(--input-line-color);
-  border: 2px solid var(--border-color);
-  box-sizing: border-box;
-  border-radius: var(--radius);
-  font-size: var(--option-font);
-  
-  color: var(--font-color);
-  padding: 10px;
-} 
-
-#cylinder-mass:focus, #cylinder-thickness:focus, #cylinder-diameter:focus, #explosive-mass:focus{
-  outline:none;
-}
-#cylinder-mass::placeholder, #cylinder-thickness::placeholder, #cylinder-diameter::placeholder, #explosive-mass::placeholder, #search::placeholder{
-  font-family: "Rubik", serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-  font-size: var(--option-font);
-}
-.label-cylinder-mass, .label-cylinder-thickness, .label-cylinder-diameter, .label-explosive-mass{
-  font-size: var(--th);
-  background-color: var(--input-line-color);
-  padding: 1px 5px;
-  position: absolute;
-  top: 0; 
-  left: 25px;
-  transition: opacity 0.3s ease-in-out, top 0.3s ease-in-out; 
-  opacity: 0; 
-  z-index: -1;
-}
-.label-mass{
-  color: var(--mass-color);    
-}
-.label-pressure{
-  color: var(--mass-color); 
-}
-.label-mass.active, .label-pressure.active { 
-  opacity: 1;
-  top: -.7em;
-  z-index: 1;  
-  background-color: var(--input-line-color);
-}
-#TNTres, #Pressure, .equivalent-value{ 
-  width: 100%;
-  display: inline-block;  
-  font-size: var(--select-font);  
-  font-weight:600;
-  padding-left: 7px;
-  align-items: center;
-}  
-.filler-mass, .filler-pressure, .filler-expl{
-  border-radius: 0 0 var(--radius) var(--radius);
-  color: var(--light);
-  background-color: var(--filler-line-color);     
-  box-shadow: 0 1px 1px #D0C898;
-  padding: 4px;
-}  
 /*посилання*/
 footer {   
   position: fixed;
@@ -759,14 +540,19 @@ th {
     }
 thead{
     }
+.button-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;    
+}
 button {    
-    padding: 10px 0;
+    padding: 15px;
     width: 100%;
+    max-width: 300px;
     font-size: var(--h1);
-    border: 1px solid #727272ad;
+    border: 1px solid #74746a44;
     color: white;
     background-color:#4b98e1ee;
-    border: none;
     border-radius: 5mm;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;   
@@ -788,7 +574,8 @@ button:disabled {
     opacity: 0.7;
 }
 .result-section {
-    margin-top: 20px;          
+     display: none;
+     padding: 0 5px 20px 5px;
     }
 .speed-calculation {
     font-size: 14px;
