@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="ua">
 <head>  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <!--стиль--> 
    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
@@ -19,12 +18,11 @@
         </div>       
     </header> 
     <main>      
-         
-        <!-- меню -->
-        <div id="sideMenu" class="side-menu">
-            <div class="menu-header">
-                 <img src="img/close.png" id="close" alt="close"></img>
-                 <img src="img/mine.png" alt="" id="logo"></img>
+         <!-- меню -->
+          <div id="sideMenu" class="side-menu">
+                <div class="menu-header">
+                     <img src="img/close.png" id="close" alt="close"></img>
+                     <img src="img/mine.png" alt="" id="logo"></img>
                  <p>Робота з вибуховими простроями</p>
             </div>           
             <ul>
@@ -56,10 +54,8 @@
            <img src="img/info-extended.png" alt="info" id="info">     
            <span class="material-symbols-outlined icon-expand">expand_content</span>        
        </div>   
-              <p></p>
-        
-        <div class="main-box">      
-           
+              <p></p>     
+        <div class="main-box">               
         <!-- ВР -->    
         <div class="input-box">        
             <div class="icon-expl">
@@ -143,15 +139,15 @@ arrow_drop_down
                 <img src="img/cylinder-diameter.png" alt="dist" id="icon-dist">
            </div>
            <label class="mdc-text-field mdc-text-field--outlined" id="cylinderDiameter">
-            <span class="mdc-notched-outline">
-                <span class="mdc-notched-outline__leading"></span>
-                <span class="mdc-notched-outline__notch">
-                    <span class="mdc-floating-label">Внутрішній діаметр [мм]</span>
-                </span>
-                <span class="mdc-notched-outline__trailing"></span>
-            </span>
-            <input type="text" class="mdc-text-field__input" />
-        </label>
+               <span class="mdc-notched-outline">
+                    <span class="mdc-notched-outline__leading"></span>
+                    <span class="mdc-notched-outline__notch">
+                        <span class="mdc-floating-label">Внутрішній діаметр [мм]</span>
+                    </span>
+                    <span class="mdc-notched-outline__trailing"></span>
+               </span>
+              <input type="text" class="mdc-text-field__input" />
+            </label>
         </div>
       
        <!-- товщина цилідра -->       
@@ -170,18 +166,23 @@ arrow_drop_down
             <input type="text" class="mdc-text-field__input" />
        </label>                
        </div>       
+       
        <div class="caution">
             <p><svg width="13px" height="13px" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1.225 21.225A1.678 1.678 0 0 0 2.707 22H22.28a1.68 1.68 0 0 0 1.484-.775 1.608 1.608 0 0 0 .003-1.656L13.995 1.827a1.745 1.745 0 0 0-2.969 0l-9.8 17.742a1.603 1.603 0 0 0 0 1.656zm.859-1.143l9.82-17.773A.71.71 0 0 1 12.508 2a.73.73 0 0 1 .629.342l9.751 17.708a.626.626 0 0 1 .017.662.725.725 0 0 1-.626.288H2.708a.723.723 0 0 1-.623-.286.605.605 0 0 1-.001-.632zM13 15h-1V8h1zm-1.5 2.5a1 1 0 1 1 1 1 1.002 1.002 0 0 1-1-1z"/>
                 <path fill="none" d="M0 0h24v24H0z"/></svg>
             </p>
-
-            <p style="display:inline;"> Примітка: метод примінимий для оцінки швидкості розльоту готових, або напівготових уламків, а також для приблизної оцінки дроблення готових уламків</a>
+                <p style="display:inline;"> Примітка: метод примінимий для оцінки швидкості розльоту готових, або напівготових уламків, а також для приблизної оцінки дроблення готових уламків</a>
             </p>
         </div>
+        
+        </div>
+        
+        <div class="button-container">
+           <button disabled>Розрахувати</button>
+        </div>
        </form>
-       </main>  
-       <button disabled>Розрахувати</button>
+      </main>  
       <div id="resultSection" class="result-section">
           <div id="speedCalculation" class="speed-calculation"></div>
           <div id="maxMassCalculation" class="mass-calculation"></div>
@@ -196,10 +197,8 @@ arrow_drop_down
               <!-- діапазон -->
              </tbody>
          </table>
-     </div>
-  
-       
-          <!--книги і канал -->   
+       </div>
+            <!--книги і канал -->   
        <footer>
         <div class="footer-content">  
             <!-- Книги, лінк -->
@@ -233,4 +232,3 @@ arrow_drop_down
     <script type="module" src="./js/index1.js"></script>         
 </body>
 </html>
-
