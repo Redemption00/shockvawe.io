@@ -123,7 +123,8 @@ function performCalculations() {
 
     // Розрахунок максимальної маси
     const Mmax = Math.pow(Mk * Math.log(CylinderMass / (2 * Mk)), 2).toFixed(1);
-
+    // Відобразити 
+    document.getElementById("resultSection").style.display = "block";    
     // Відображення швидкості
     document.getElementById("speedCalculation").textContent = `Початкова швидкість розльоту: ${speed} м/с`;
 
@@ -274,3 +275,4 @@ document.getElementById("close").addEventListener("click", function() {
   document.querySelector("body").classList.remove("dim-overflow");      
 });
 
+                            
