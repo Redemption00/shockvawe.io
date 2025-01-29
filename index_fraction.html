@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    
+    <meta charset="UTF-8">
+    <!--стиль--> 
+   <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./css/index1.css">    
+       
+</head>
+    <body> 
+    <!-- Заголовок і версія -->
+    <header>    
+        <div class="name">
+            <span class="material-symbols-outlined icon-menu" id="expand">menu</span>            
+            <a>Фрагментація циліндра</a>                            
+        </div>       
+    </header> 
+    <main>      
+         
+        <!-- меню -->
+        <div id="sideMenu" class="side-menu">
+            <div class="menu-header">
+                 <img src="img/close.png" id="close" alt="close"></img>
+                 <img src="img/mine.png" alt="" id="logo"></img>
+                 <p>Робота з вибуховими простроями</p>
+            </div>           
+            <ul>
+                <li>
+                    <img src="img/wave-part.png" alt="vawe"></img>
+                    <a href="#">Тиск вибухової хвилі</a>
+                </li>   
+                <li>
+                    <img src="img/fractions-menu.png" alt="vawe" ></img>
+                    <a href="#">Осколкова дія</a>
+                </li>              
+                <li>
+                    <img src="img/sappers.png" alt="sappers"></img>
+                    <a href="https://sappers.com.ua/">Міни</a>
+                </li>        
+                 <li>
+                    <img src="img/detonator-menu.png" alt="vawe"></img>
+                    <a href="#" style="color:#61616170;">Зведення детонаторів</a>
+                </li>   
+                <li>
+                    <img src="img/map.png" alt="vawe"></img>
+                    <a href="#" style="color:#61616170;">КМП</a>
+                </li>                                     
+            </ul>
+        </div>
+        
+       <form novalidate autocomplete="off">       
+       <div class="icon-info">
+           <img src="img/info-extended.png" alt="info" id="info">     
+           <span class="material-symbols-outlined icon-expand">expand_content</span>        
+       </div>   
+              <p></p>
+        
+        <div class="main-box">      
+           
+        <!-- ВР -->    
+        <div class="input-box">        
+            <div class="icon-expl">
+                 <img src="img/explosives.png" alt="expl1" id="icon-expl">   
+            </div>    
+            
+        <div class="mdc-select mdc-select--outlined" id="my-select">
+            <div class="mdc-select__anchor">
+                <span class="mdc-notched-outline">
+                    <span class="mdc-notched-outline__leading"></span>
+                    <span class="mdc-notched-outline__notch">
+                        <span class="mdc-floating-label">Вибухова речовина</span>
+                    </span>
+                    <span class="mdc-notched-outline__trailing"></span>
+                </span>
+                <div class="mdc-select__selected-text-container">
+                    <span class="mdc-select__selected-text"></span>
+                </div>
+               <span class="material-symbols-outlined arrow-symbol">
+arrow_drop_down
+               </span>
+            </div>
+
+            <div class="mdc-select__menu mdc-menu mdc-menu-surface">
+                <ul class="mdc-list">
+                    <li class="mdc-list-item" data-value="option1" data-mott="0.038" data-gurney="2323">
+                        <span class="mdc-list-item__ripple"></span>
+                        <span class="mdc-list-item__text">Тротил (ТНТ)</span>
+                    </li>
+                    <li class="mdc-list-item" data-value="option2" data-mott="0.035" data-gurney="2707">
+                        <span class="mdc-list-item__ripple"></span>
+                        <span class="mdc-list-item__text">Гексоген (С4)</span>
+                    </li>
+                    <li class="mdc-list-item" data-value="option3" data-mott="0.027" data-gurney="2828">
+                        <span class="mdc-list-item__ripple"></span>
+                        <span class="mdc-list-item__text">ТГ-40 (Composition B)</span>
+                    </li>
+                    <li class="mdc-list-item" data-value="option4" data-mott="0.051" data-gurney="1717">
+                        <span class="mdc-list-item__ripple"></span>
+                        <span class="mdc-list-item__text">Кемікс (Kemix)</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+       </div>
+       <!-- маса вр -->
+       <div class="input-box">
+           <div class="icon-mass1">
+                <img src="img/explosive-mass.png" alt="ms" id="icon-mass">
+           </div> 
+           <label class="mdc-text-field mdc-text-field--outlined" id="explosiveMass">
+            <span class="mdc-notched-outline">
+                <span class="mdc-notched-outline__leading"></span>
+                <span class="mdc-notched-outline__notch">
+                    <span class="mdc-floating-label">Маса вибухівки [г]</span>
+                </span>
+                <span class="mdc-notched-outline__trailing"></span>
+            </span>
+            <input type="text" class="mdc-text-field__input" />
+        </label>
+       </div>
+       <!-- маса циліндра -->
+       <div class="input-box">
+           <div class="icon-dist">
+                <img src="img/cylinder-mass.png" alt="dist" id="icon-dist">
+           </div>
+       <label class="mdc-text-field mdc-text-field--outlined" id="cylinderMass">
+            <span class="mdc-notched-outline">
+                <span class="mdc-notched-outline__leading"></span>
+                <span class="mdc-notched-outline__notch">
+                    <span class="mdc-floating-label">Маса циліндра [г]</span>
+                </span>
+                <span class="mdc-notched-outline__trailing"></span>
+            </span>
+            <input type="text" class="mdc-text-field__input" />
+        </label>
+       </div>
+       <!--діаметр циліндра-->       
+       <div class="input-box">
+           <div class="icon-dist">
+                <img src="img/cylinder-diameter.png" alt="dist" id="icon-dist">
+           </div>
+           <label class="mdc-text-field mdc-text-field--outlined" id="cylinderDiameter">
+            <span class="mdc-notched-outline">
+                <span class="mdc-notched-outline__leading"></span>
+                <span class="mdc-notched-outline__notch">
+                    <span class="mdc-floating-label">Внутрішній діаметр [мм]</span>
+                </span>
+                <span class="mdc-notched-outline__trailing"></span>
+            </span>
+            <input type="text" class="mdc-text-field__input" />
+        </label>
+        </div>
+      
+       <!-- товщина цилідра -->       
+       <div class="input-box">
+           <div class="icon-dist">
+                <img src="img/cylinder-thickness.png" alt="dist" id="icon-dist">
+           </div>
+           <label class="mdc-text-field mdc-text-field--outlined" id="cylinderThickness">
+            <span class="mdc-notched-outline">
+                <span class="mdc-notched-outline__leading"></span>
+                <span class="mdc-notched-outline__notch">
+                    <span class="mdc-floating-label">Товщина циліндра [мм]</span>
+                </span>
+                <span class="mdc-notched-outline__trailing"></span>
+            </span>
+            <input type="text" class="mdc-text-field__input" />
+       </label>                
+       </div>       
+       <div class="caution">
+            <p><svg width="13px" height="13px" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.225 21.225A1.678 1.678 0 0 0 2.707 22H22.28a1.68 1.68 0 0 0 1.484-.775 1.608 1.608 0 0 0 .003-1.656L13.995 1.827a1.745 1.745 0 0 0-2.969 0l-9.8 17.742a1.603 1.603 0 0 0 0 1.656zm.859-1.143l9.82-17.773A.71.71 0 0 1 12.508 2a.73.73 0 0 1 .629.342l9.751 17.708a.626.626 0 0 1 .017.662.725.725 0 0 1-.626.288H2.708a.723.723 0 0 1-.623-.286.605.605 0 0 1-.001-.632zM13 15h-1V8h1zm-1.5 2.5a1 1 0 1 1 1 1 1.002 1.002 0 0 1-1-1z"/>
+                <path fill="none" d="M0 0h24v24H0z"/></svg>
+            </p>
+
+            <p style="display:inline;"> Примітка: метод примінимий для оцінки швидкості розльоту готових, або напівготових уламків, а також для приблизної оцінки дроблення готових уламків</a>
+            </p>
+        </div>
+       </form>
+       </main>  
+       <button disabled>Розрахувати</button>
+      <div id="resultSection" class="result-section">
+          <div id="speedCalculation" class="speed-calculation"></div>
+          <div id="maxMassCalculation" class="mass-calculation"></div>
+          <table id="resultTable">
+              <thead>
+                  <tr>
+                      <th>Діапазон маси [грам]</th>
+                      <th>Кількість осколків</th>
+                  </tr>
+              </thead>
+             <tbody>
+              <!-- діапазон -->
+             </tbody>
+         </table>
+     </div>
+  
+       
+          <!--книги і канал -->   
+       <footer>
+        <div class="footer-content">  
+            <!-- Книги, лінк -->
+            <div class="link-icon1">     
+                <a href="https://drive.google.com/drive/u/0/mobile/folders/1PZpQCcYtQp-JyMkJQ0uLxQp8HEUPv3Qp?usp=sharing" >      
+                                  
+                    <img src="img/books.png" alt="Books icon">
+                    <div class="link">
+                        <div class="first">Саперка</div>
+                        <div class="second">Google диск</div>
+                    </div>    
+                </a>
+            </div>  
+             <!-- Канал Лісника, лінк -->  
+            <div class="link-icon2">               
+                <a href="https://t.me/Ahtung_minen">
+                    <img src="img/forester.png" alt="Forester icon">   
+                    <div class="link">
+                        <div class="first">Канал Лісника</div>
+                        <div class="second">Telegram</div>
+                    </div>                  
+                </a>     
+            </div>
+        </div>               
+      </footer>
+     
+   <div class="dimming-options"></div>      
+   <div class="dimming-menu"></div>        
+   <!-- скріпти: формула; справка; таблиця ВР -->
+    <script src="https://unpkg.com/material-components-web@14.0.0/dist/material-components-web.min.js"></script>
+    <script type="module" src="./js/index1.js"></script>         
+</body>
+</html>
+
